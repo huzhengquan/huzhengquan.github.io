@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>在Moblin中播放mp3、avi、rmvb - kurrunk</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style type="text/css">
+		body{background-color:#f4f4f4;}
+		header,footer,aside{text-align:center}
+		footer,footer>a{color:#999;font-size:12px;}
+		header>h1{font-size:1em}
+		article{max-width:45em; line-height:150%; margin:auto; background-color:white; padding:1em; border-radius:7px;}
+	</style>
+</head>
+<body>
+	<header>
+	<h1>在Moblin中播放mp3、avi、rmvb</h1>
+	</header>
+	<article><p>Moblin默认支持的音频和视频格式非常有限，似乎只支持OGG\OGV格式，而软件仓库中并没有必要的解码器。</p><p>首先确认yum可以安装哪些相关的软件，搜索“gstreamer”的结果：</p><ul><li>gst-plugins-base.i586</li><li>gst-plugins-base-devel.i586</li><li>gst-plugins-farsight.i586</li><li>gst-plugins-good</li></ul><p>如果列表中有还没安装的gstplugin就先都安装上。</p><p>接着开始下载、安装了，记得在configure的时候prefix=/usr。</p><ul><li><a href='http://lame.sourceforge.net/download.php'>下载lame源码包</a>，编译安装</li><li>下载文件:libid3tag、libmad、madplay（<a href='ftp://ftp.mars.org/pub/mpeg/'>下载地址</a>），编译安装。  这时我遇到error:     <code>cc1: error: unrecognized command line option &quot;-fforce-mem&quot;</code>     解决方法就是编辑Makefile，删除字符串“-fforce-mem”</li><li><code>#yum install liboil-devel</code></li><li>下载<a href='http://www.tortall.net/projects/yasm/wiki/Download'>yasm</a>、<a href='http://www.xvid.org/Downloads.43.0.html'>xvid</a>、<a href='http://ffmpeg.org/download.html'>FFmpeg</a>，并编译安装</li><li>去下载gst-plugins-bad、gst-plugins-ugly、gst-ffmpeg（<a href='http://gstreamer.freedesktop.org/src/'>下载地址</a>），编译安装</li></ul><p>正常情况下，这时Moblin已经可以播放mp3 avi rm文件了。</p></article>
+	<aside>
+		<p>2010-01-18 10:23:00</p>
+		<p><a href="../tag/%E5%AE%89%E8%A3%85.html">安装</a> <a href="../tag/%E8%BD%AF%E4%BB%B6.html">软件</a> <a href="../tag/Moblin.html">Moblin</a> <a href="../tag/libmad.html">libmad</a> <a href="../tag/gstreamer.html">gstreamer</a> <a href="../tag/mp3.html">mp3</a> <a href="../tag/linux.html">linux</a> <a href="../tag/FFmpeg.html">FFmpeg</a> <a href="../tag/avi.html">avi</a> <a href="../tag/%E8%A7%A3%E7%A0%81%E5%99%A8.html">解码器</a> <a href="../tag/rmvb.html">rmvb</a> <a href="../tag/lame.html">lame</a>  </p>
+	</aside>
+	<footer>
+		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	</footer>
+</body>
+</html>

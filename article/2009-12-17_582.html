@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>让Linux中的壁纸自动更新 - kurrunk</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style type="text/css">
+		body{background-color:#f4f4f4;}
+		header,footer,aside{text-align:center}
+		footer,footer>a{color:#999;font-size:12px;}
+		header>h1{font-size:1em}
+		article{max-width:45em; line-height:150%; margin:auto; background-color:white; padding:1em; border-radius:7px;}
+	</style>
+</head>
+<body>
+	<header>
+	<h1>让Linux中的壁纸自动更新</h1>
+	</header>
+	<article><p>我的linux桌面一直是黑漆漆的，有一年多没用壁纸了，今天心血来潮了。</p><p>1x.com的图片很漂亮，格调简单。 这文章写的就是怎么把1x.com的美图自动设置为自己的桌面，而且这是自动的。 有一点需要注意，1x.com的图片尺寸有限，如果你的显示分辨率大了可能显示效果不会很好（我的800x600显示效果还不错）。</p><p>软件环境是：archlinux+openbox+feh。</p><h4>写个PHP脚本</h4><p>	<?php 	error_reporting(1); 	require_once 'simplepie.inc'; 	$feed = new SimplePie('http://1x.com/rss/rss.php', 'cache'); 	$i=0; 	$max = $feed->get<i>item</i>quantity(); 	$curl = curl_init(); 	while($i<$max){ 		$item=$feed->get_item($i); 		$url=$item->get_permalink(); 		$id=ereg_replace("<sup>[</sup><sup>0-2|4-9]+D","",$url);</sup> 				$fp = fopen('tmp-thumb.jpg', "w"); 		curl<i>setopt($curl, CURLOPT</i>FILE, $fp); 		curl<i>setopt($curl,CURLOPT</i>URL,"http://1x.com/pictures/$id-thumb.jpg"); 		curl_exec($curl); 		fclose($fp); 		$xy= getimagesize('tmp-thumb.jpg'); 		if($xy[0]>$xy[1]){ 			$fp = fopen('/home/kurrunk/kurrunk.well/1x.jpg', "w"); 			curl<i>setopt($curl, CURLOPT</i>FILE, $fp); 			curl<i>setopt($curl,CURLOPT</i>URL,"http://1x.com/OEfullSize/$id-fullsize.jpg"); 			curl_exec($curl); 			fclose($fp); 			break; 		} 		$i++; 	} 	curl_close($curl); 	?> 其中用到了rss解析工具“simplepie”，还有curl。 把脚本保存到一个目录下。</p><h4>写个sh用来执行php脚本，并更新桌面</h4><p>shell文件的内容是： 	export DISPLAY=:0.0 	feh &ndash;bg-scale ~/kurrunk.well/1x.jpg 	php ~/dwell/uw.php</p><p>上面的路径根据具体情况设置。</p><p>增加可执行属性: 	$chmod +x kurrunk.scripts/well.sh</p><h4>加入计划任务中</h4><p>创建cron文件，内容为： <code>0 &#42;/2 &#42; &#42; &#42; kurrunk.scripts/well.sh</code>这里任务间隔是2个小时。</p><p>激活crontab： <code>$sudo -u kurrunk crontab kurrunk.scripts/well.cron</code></p><p>查看任务是不是加入了： <code>$sudo -u kurrunk crontab -l</code></p><h4>开机更新壁纸</h4><p>这个如果不设置的话，初开机时可能是没有壁纸的。</p><p>在.config/openbox/autostart.sh加入： <code>kurrunk.scripts/well.sh</code> 如果要求不高的话也没必要设置计划任务，开机时更新一次就好了。</p><p>题外话：本来想用python写的，两分钟过去我没有反应，明白了自己已经把python忘的差不多了。</p></article>
+	<aside>
+		<p>2009-12-17 13:32:51</p>
+		<p><a href="../tag/openbox.html">openbox</a> <a href="../tag/1x.com.html">1x.com</a> <a href="../tag/feh.html">feh</a> <a href="../tag/linux.html">linux</a> <a href="../tag/php.html">php</a> <a href="../tag/%E5%A3%81%E7%BA%B8.html">壁纸</a> <a href="../tag/crontab.html">crontab</a>  </p>
+	</aside>
+	<footer>
+		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	</footer>
+</body>
+</html>

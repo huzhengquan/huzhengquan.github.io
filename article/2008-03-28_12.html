@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>用javascript模仿黑客帝国的文字滚动 - kurrunk</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style type="text/css">
+		body{background-color:#f4f4f4;}
+		header,footer,aside{text-align:center}
+		footer,footer>a{color:#999;font-size:12px;}
+		header>h1{font-size:1em}
+		article{max-width:45em; line-height:150%; margin:auto; background-color:white; padding:1em; border-radius:7px;}
+	</style>
+</head>
+<body>
+	<header>
+	<h1>用javascript模仿黑客帝国的文字滚动</h1>
+	</header>
+	<article><p>大家可能都记得黑客帝国中经典的绿色文字滚动效果，很酷！昨天发现了一个vim的插件<a href='http://rizi.rizuo.com/e/4378'>matrix.vim也有这效果</a>。今天我用Javascript大致实现了那样的效果，可是有个严重的问题：运行的很慢，场景中同时存在20个以上实例的时候就一卡一卡的，谁有优化方案可以解决？或者你有其他的实现途径，欢迎交流。</p><p>我做的效果(只在Firefox中测试过)：<a href='http://www.phecda.org/ping/hack.html'>http://www.phecda.org/ping/hack.html</a></p><p>更新：在IE7中测试通过，之前的不兼容是HTML对象setAttribute造成的，改为“className”+“obj.style.***”来兼容IE和firefox。</p><p>更新2：用position:absolute来再次实现同样效果，移动文字的位置同时文字替换，运行效率高了不少，实例数目由窗口大小决定。遗憾的是Firefox中视觉有明显跳跃。 效果2：<a href='http://www.phecda.org/ping/hack2.html'>http://www.phecda.org/ping/hack2.html</a></p><p>更新3：用第2种方法，在IE中很正常，firefox中有跳跃的感觉。于是想到了这个方法：文字不移动只在下面appendChild文字，同时改变方字的颜色；文字超出视界时删除。 效果3：<a href='http://www.phecda.org/ping/hack3.html'>http://www.phecda.org/ping/hack3.html</a></p></article>
+	<aside>
+		<p>2008-03-28 04:49:16</p>
+		<p><a href="../tag/JavaScript.html">JavaScript</a>  </p>
+	</aside>
+	<footer>
+		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	</footer>
+</body>
+</html>

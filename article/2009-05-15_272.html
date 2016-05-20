@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>文档工具：DocBook、reStructured - kurrunk</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style type="text/css">
+		body{background-color:#f4f4f4;}
+		header,footer,aside{text-align:center}
+		footer,footer>a{color:#999;font-size:12px;}
+		header>h1{font-size:1em}
+		article{max-width:45em; line-height:150%; margin:auto; background-color:white; padding:1em; border-radius:7px;}
+	</style>
+</head>
+<body>
+	<header>
+	<h1>文档工具：DocBook、reStructured</h1>
+	</header>
+	<article><p>如果接触开源软件比较多的话，你就可能经常会看到一种大致样式相似、更加注重内容、简单样式但亲和力好的文档，比如：</p>	<ul><li><a href='http://www.woodpecker.org.cn/diveintopython/toc/index.html'>深入 Python :Dive Into Python 中文版</a></li><li><a href='http://www.subversion.org.cn/svnbook/1.4/index.html'>使用Subversion进行版本控制</a></li><li><a href='http://docs.gimp.org/2.2/zh_CN/index.html'>GNU Image Manipulation Program  用户手册</a></li><li><a href='http://www.woodpecker.org.cn:9081/doc/abyteofpython_cn/chinese/index.html'>简明 Python 教程</a></li><li><a href='http://www.programfan.com/doc/php_manual/index.html'>PHP 手册</a></li><li><a href='http://www.freebsd.org/doc/zh_CN/books/handbook/index.html'>FreeBSD 使用手册</a></li><li><a href='http://www.mplayerhq.hu/DOCS/HTML/zh_CN/index.html'>MPlayer - 电影播放器</a></li><li><a href='http://www.zendchina.net/zend_framework_manual/index.html'>Zend Framework手册 中文版</a></li></ul><p>等等这些这些文档都是<a href='http://docbook.sourceforge.net/'>DocBook</a>生成的。</p><p>DocBook基于XML、XSL，主要用来创建文档，目前使用DocBook驱动的文档大多是开源软件技术文档。Docbook文档是标准XML格式，通过XSL可以生成HTML文件、HTMLs（带分页的超文本格式）、TEXT、RTF（Word兼容）、CHM，使用FOP可以生成PDF文件。</p><p>DocBook适合大型文档的管理，输出形式很丰富，可是DocBook的标签很多，需要一些学习，以下是DocBook文档事例：</p><p>	<?xml version='1.0' encoding="UTF-8"?> 	<!DOCTYPE article 	PUBLIC "-//OASIS//DTD DocBook XML V4.5/zh_cn" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"> 	<article> 	<info> 	<title>文章</title> 	<author>作者</author> 	<address>地址</address> 	<copyright><year>2008</year><holder>所有者</holder></copyright> 	</info> 	<sect1> 	<title>标题</title> 	<para> 	内容 	</para> 	</sect1> 	</article></p><p><a href='http://docutils.sourceforge.net/rst.html'>reStructured</a>和DocBook类似，reStructured的书写方式更加简单、简易理解，但管理大型文档很麻烦，以下是reStructured文档形式：</p><blockquote><p>     A ReStructuredText Primer  <br />     =========================  <br /></p><p>     :Author: Richard Jones  <br />     :Version: $Revision: 5801 $  <br />     :Copyright: This document has been placed in the public domain. </p><p>     .. contents:: </p><p>     The text below contains links that look like "(quickref__)".  These  <br />     are relative links that point to the <code>Quick reStructuredText</code>_ user  <br />     reference.  If these links don't work, please refer to the `master  <br />     quick reference`_ document. </p><p>     __  <br />     .. _Quick reStructuredText: quickref.html  <br />     .. _master quick reference:  <br />        http://docutils.sourceforge.net/docs/user/rst/quickref.html <br /></p><p>     .. Note:: This document is an informal introduction to  <br />        reStructuredText.  The <code>What Next?</code>_ section below has links to <br />        further resources, including a formal reference. </p></blockquote><p>看上去reStructured更接近我们阅读时看到的文档。</p><p>如果对reStructured有兴趣，同时喜欢VIM的话，可以看看<a href='http://cle.linux.org.tw/~edt1023/vim/vst/index.html'>VST（Vim reStructured Text）簡介</a>。</p><p>这方面软件还有<a href='http://txt2tags.sourceforge.net/'>txt2tags</a>(轻量级)、<a href='http://sphinx.pocoo.org'>Sphinx</a>(python官方文档使用)。</p><p>我在学习中。</p></article>
+	<aside>
+		<p>2009-05-15 07:10:46</p>
+		<p><a href="../tag/%E8%BD%AF%E4%BB%B6.html">软件</a> <a href="../tag/DocBook.html">DocBook</a> <a href="../tag/reStructured.html">reStructured</a> <a href="../tag/%E6%96%87%E6%A1%A3.html">文档</a>  </p>
+	</aside>
+	<footer>
+		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	</footer>
+</body>
+</html>

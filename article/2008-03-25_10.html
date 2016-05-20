@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>rdesktop使用方法 - kurrunk</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style type="text/css">
+		body{background-color:#f4f4f4;}
+		header,footer,aside{text-align:center}
+		footer,footer>a{color:#999;font-size:12px;}
+		header>h1{font-size:1em}
+		article{max-width:45em; line-height:150%; margin:auto; background-color:white; padding:1em; border-radius:7px;}
+	</style>
+</head>
+<body>
+	<header>
+	<h1>rdesktop使用方法</h1>
+	</header>
+	<article><p>Windows 提供了一种远程桌面系统，可使用户远程登录进行系统管理或作为终端服务器运行各种应用软件。要连接Windows远程桌面，需在Windows客户端安装 相应的软件（tsclient）。在Linux 系统中，我们也可通过<a href='http://www.rdesktop.org/'>rdesktop</a>工具连接Windows远程桌面。</p><p>debian中安装rdesktop非常简单，只要你连着WWW：</p><p>	debian:~#apt-get install rdesktop</p><p>使用方法：</p><p>	debian:~#rdesktop -g 800x600 -a 16 -u username -p password -r disk:hdbx=/home/hu/www www.phdcea.org</p><ul><li><strong>-g 800x600</strong>：表示显示分辨率为<strong>800x600</strong>，全屏显示可以用<strong>-f</strong>，注意：全屏显示时全屏与正常切换组合键是<strong>ctrl+alt+enter</strong>；</li><li><strong>-a 16</strong>：表示使用16 bit色；</li><li><strong>-u username -p password</strong>：用户名和密码；</li><li><strong>-r disk:hdbx=/home/hu/www</strong>：指定主机linux上的一个目录(/home/hu/www)映射到远程Windows上的hdbx盘；</li><li><strong>www.phecda.org</strong>：这个域名指向所要连接的win主机，也可以换成WIN主机的IP地址；</li></ul><p>更多的使用方法请：debian:~#rdesktop -h</p></article>
+	<aside>
+		<p>2008-03-25 11:19:54</p>
+		<p><a href="../tag/%E8%BD%AF%E4%BB%B6.html">软件</a> <a href="../tag/linux.html">linux</a> <a href="../tag/rdesktop.html">rdesktop</a>  </p>
+	</aside>
+	<footer>
+		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	</footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>habari 0.5.2 使用感受 - kurrunk</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style type="text/css">
+		body{background-color:#f4f4f4;}
+		header,footer,aside{text-align:center}
+		footer,footer>a{color:#999;font-size:12px;}
+		header>h1{font-size:1em}
+		article{max-width:45em; line-height:150%; margin:auto; background-color:white; padding:1em; border-radius:7px;}
+	</style>
+</head>
+<body>
+	<header>
+	<h1>habari 0.5.2 使用感受</h1>
+	</header>
+	<article><p>给到到注册了一个域名(yudao.org)并建了一个<a href='http://hu.yudao.org'>blog</a>，WP有些臃肿了，接触了太多后也想尝尝鲜，于是就找到了<a href='http://www.habariproject.org'>habari</a>。</p><p>habari和wordpress有一段<a href='http://bemike.org/2007/01/20/thoughts-on-Habari-and-Wordpress.html'>江湖恩怨</a>，<a href='http://blog.tinyau.net/archives/2007/08/29/browse-happy-issue-of-wordpress'>这儿</a>有事件的导火索，<a href='http://binarybonsai.com/'>Michael Heilemann</a>(WordPress建), <a href='http://www.chrisjdavis.org/'>Chris J. Davis</a>, <a href='http://www.brokenkode.com/'>Khaled Abou Alfa</a>, <a href='http://asymptomatic.net/'>Owen Winkler</a>, <a href='http://www.skippy.net/'>Skippy</a>等牛人离开 Wordpress开始了habari。本身这个故事就让我对habari很期待，另外看到好几个国内的blog对habari的理念称道不已，于是第一选择就是habari。</p><p>下载了0.5.2（08年10月发布），目录结构很漂亮，根目录只有一个index.php(WP是一堆的wp<i>*.php)，系统文件在system目录，用户有独立的目录user，有doc放文档，scripts是js脚本(这个是不是放在system中更合理)，安装还算顺利，安装完页面的中文显示?，把库清空了并设定编码是utf8</i>general_ci后再安装就能显示中文了。</p><p>后台界面很朴素，但不简单，黑白色调，操作入口都在左上角的开始菜单，可以设置的项很少，很炫，大量的使用AJAX，在我的800x600的显示器上能很好的用(wp中我的编辑器只有250px宽的可用范围)。视觉组件不紧凑，文字很小,不能记住登录，不知怎么改成中国时区，没有Trackbacks、摘要、分类等post属性项，只有tag，Feed只有atom。</p><p>总之很GEEK，似乎habari这方面走向了一个极端，像是在自做聪明，比如默认post链接就是http://hu.yudao.org/{$slug}，中文标题的话就会找不到页面(必需在发表的时候手动设置网址)，我想改为我喜欢的http://hu.yudao.org/{$id}的形式都找不到更改的入口。</p><p>我也听说habari只是提供最基本的系统，其他要靠插件，只是这基本的系统替用户考虑有点过了，是不是/index.php?<em>比/</em>要更“基本”？</p><p>插件不算少但不知道都是干什么的，在中文世界这部分知识太少。</p><p>habari更像是一群geek的审美独裁。如果你是geek并在审美上和habari一致那么habari挺适合你的。</p><p>这是0.5.2正式版，一会儿再看看0.6 alpha是什么样子。<h2></h2></p><p>更新：0.6增加了时区，中文标题的文章可以不设置“Content Address”发表。</p></article>
+	<aside>
+		<p>2009-03-30 15:01:23</p>
+		<p><a href="../tag/habari.html">habari</a> <a href="../tag/wordpress.html">wordpress</a>  </p>
+	</aside>
+	<footer>
+		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	</footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>DELL Optiplex 320安装linux(debian)小记 - kurrunk</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style type="text/css">
+		body{background-color:#f4f4f4;}
+		header,footer,aside{text-align:center}
+		footer,footer>a{color:#999;font-size:12px;}
+		header>h1{font-size:1em}
+		article{max-width:45em; line-height:150%; margin:auto; background-color:white; padding:1em; border-radius:7px;}
+	</style>
+</head>
+<body>
+	<header>
+	<h1>DELL Optiplex 320安装linux(debian)小记</h1>
+	</header>
+	<article><p>一直以来都是家用linux，单位用windows，最近工作不是很忙，就想在办公用的电脑上装个LINUX（debian），但安装过程极不顺利，因为硬件是DELL Optiplex 320，网上有很多朋友和我是同样问题，具体为什么这款机子不让装LINUX就不大清楚了。</p><p>以下是我的安装过程。</p><ol><li>刻录光盘，从光盘引导启动系统；   DELL Optiplex 320是64位构架，我选择的DEBIAN是amd64版。</li><li>在boot:提示行输入“expert pci=nomsi”按回车键   为什么用expert安装？原因是DELL此机用正常方式安装后无法用GRUB引导，所以用expert来选择安装LILO</li><li>按正常情况下的步骤安装系统；</li><li>安装结束后选择安装LILO引导程序；</li><li>重启进入系统后，安装GRUB2：   虽然grub不能引导linux，但GRUB2是可以的，   	#apt-get install grub2   	#grub-install /dev/sda   	#update-grub</li><li>配置GRUB：   	#vi /boot/grub/grub.cfg   在行“linux   (hd0,1)/vmlinuz-2.6......ro ”后加参数“ pci=nomsi”   因为还有WINDOWS所以再加一个启动项：   	menuentry "Windows" {   	search &ndash;set /ntldr   	chainloader +1   	}</li><li>删除LILO：   	#apt-get remove lilo</li></ol><p>其它：有人说启动linux时不用pci=nomsi而用acpi=off，为了保险可以两个都用上，需要注意两个的前后顺序不同结果也不同。</p><p>另外：系统使用过程也不理想，时常“卡”并“硬盘吱吱的响”，等待10分钟左右现象消失；pidgin出现过猛占99％CPU的情况；关机不彻底。</p><p>这就是我的安装整个过程，说说也就这么几句，但在我安装时一遍遍尝试，着实费了不少的力气。</p></article>
+	<aside>
+		<p>2008-10-18 02:40:54</p>
+		<p><a href="../tag/debian.html">debian</a> <a href="../tag/%E5%AE%89%E8%A3%85.html">安装</a> <a href="../tag/linux.html">linux</a> <a href="../tag/grub2.html">grub2</a>  </p>
+	</aside>
+	<footer>
+		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	</footer>
+</body>
+</html>

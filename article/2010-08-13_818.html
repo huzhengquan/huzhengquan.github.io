@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>在linux上搭建flex(flash)开发环境 - kurrunk</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style type="text/css">
+		body{background-color:#f4f4f4;}
+		header,footer,aside{text-align:center}
+		footer,footer>a{color:#999;font-size:12px;}
+		header>h1{font-size:1em}
+		article{max-width:45em; line-height:150%; margin:auto; background-color:white; padding:1em; border-radius:7px;}
+	</style>
+</head>
+<body>
+	<header>
+	<h1>在linux上搭建flex(flash)开发环境</h1>
+	</header>
+	<article><p>习惯了在WINDOWS中用<a href='http://blog.kurrunk.com/archives/tag/flash'>FLASH</a>或FLEX Builder，在LINUX中开发多少有些不习惯，但在LINUX中搭建FLASH开发环境还是很简单的。</p><p>首先去ADOBE网站下载FLEX SDK压缩包，当前最新版本是<a href='http://www.adobe.com/go/flex4_sdk'>4.0</a>。</p><p>下载在本地后解压缩: <code>$unzip flex&#42;.zip -d tempdir</code> 建立FLEX运行目录： <code>$sudo mkdir /opt/flex</code> 转移文件到新目录： <code>$sudo mv tempdir/&#42; /opt/flex/</code> 删除临时目录 <code>$rmdir tempdir</code></p><p>现在可以用/opt/flex/bin/mxmlc编译SWF文件了，如果在bash中希望直接用命令编译SWF，在~/.bashrc中加入： <code>export PATH=/opt/flex/bin:$PATH</code></p><p>环境搭建完成，可以进行FLASH的开发了。</p><p>新建kurrunk.as文件：</p>  <br /><pre><code>package{
+    import flash.display.&#42;;
+    import flash.text.&#42;;
+    public class ad extends Sprite{
+        public function ad&#40;&#41;{
+            var t:TextField = new TextField&#40;&#41;;
+            t.text = 'kurrunk.com';
+            addChild&#40;t&#41;;
+        }
+    }
+}</code></pre><p>编译到swf文件： <code>$mxmlc kurrunk.as</code> 在浏览器中查看结果： <code>$chromium-browser kurrunk.swf</code></p></article>
+	<aside>
+		<p>2010-08-13 03:43:50</p>
+		<p><a href="../tag/linux.html">linux</a> <a href="../tag/flash.html">flash</a> <a href="../tag/%E5%BC%80%E5%8F%91.html">开发</a> <a href="../tag/flex.html">flex</a>  </p>
+	</aside>
+	<footer>
+		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	</footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>mysql的加密函数PASSWORD和OLD_PASSWORD - kurrunk</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style type="text/css">
+		body{background-color:#f4f4f4;}
+		header,footer,aside{text-align:center}
+		footer,footer>a{color:#999;font-size:12px;}
+		header>h1{font-size:1em}
+		article{max-width:45em; line-height:150%; margin:auto; background-color:white; padding:1em; border-radius:7px;}
+	</style>
+</head>
+<body>
+	<header>
+	<h1>mysql的加密函数PASSWORD和OLD_PASSWORD</h1>
+	</header>
+	<article><p>mysql在4.1版本之前，password加密的结果是十多位的字符串，4.1后password加密的结果是40位左右的字符串，但可用old&#95;password函数替代password函数来解决过渡的问题，也可以更改my.conf中old&#95;password=0来继续使用老的password函数。</p><p>今天碰到的问题是这样的，我的空间是租用的虚拟主机，之前一直用的是新的password函数，今天换了一下主机，mysql依然是5.0，但新主机my.conf把old_password启动了，搞的用户都无法登录，5.0mysql有old&#95;password但没有new&#95;password，我又改不了my.conf。</p><p>解决方法就是set:</p><blockquote><p> mysql&#95;query("set old_passwords =0",$db);<br /></p></blockquote><p>这问题其实不算问题，是我太愚蠢了。</p></article>
+	<aside>
+		<p>2009-03-28 03:25:59</p>
+		<p><a href="../tag/mysql.html">mysql</a>  </p>
+	</aside>
+	<footer>
+		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	</footer>
+</body>
+</html>

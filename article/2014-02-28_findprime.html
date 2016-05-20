@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>寻找质数 - kurrunk</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style type="text/css">
+		body{background-color:#f4f4f4;}
+		header,footer,aside{text-align:center}
+		footer,footer>a{color:#999;font-size:12px;}
+		header>h1{font-size:1em}
+		article{max-width:45em; line-height:150%; margin:auto; background-color:white; padding:1em; border-radius:7px;}
+	</style>
+</head>
+<body>
+	<header>
+	<h1>寻找质数</h1>
+	</header>
+	<article><p>前几天在twitter上第一次看到“质数币”，和比特币最大的不同是：比特币浪费CPU资源，而质数币用CPU找质数。</p><p>后来想，选个质数手机号。在网上没找到这样的质数集。反正质数的概念简单，就着手自己写一个吧。</p><p>第一版的算法很简单，从2开始往更大的数去寻找质数，像这样：2 3 4 5 6 7 8……。怎么确定这个数是质数呢？也是从小到大挨个儿取余，最大的数是本身-1，整个过程值都不是0的情况可以确定这是质数。</p><p>第一版运行很好，运行了16小时了，找到了809691个质数，最大质数是12353311。</p><p>这样的速度太慢，因为我要找到156xxxxxxxx这样的11位数字，照这样的速度也不知道跑到那一年才能找到，必须优化之。</p><p>第二版的优化首先确定两个方向：1，取余计算不必是2-n之间的所有整数，只需要之间的质数即可；2，不必是2-n之间的所有质数，只要是2-sqrt(n)之间的质数即可。</p><p>第二版代码是：</p><pre><code class="python">#/usr/bin/env python
+import array,math
+
+prime&#95;arr=array.array&#40;'l',&#91;&#93;&#41;
+for line in open&#40;'list','r'&#41;:
+    prime&#95;arr.append&#40;int&#40;line&#41;&#41;
+
+def is&#95;prime&#40;n&#41;:
+    for ex in prime&#95;arr:
+        if math.sqrt&#40;n&#41;&lt;ex: return True
+        elif n%ex==0: return False
+    return True
+
+for i in xrange&#40;prime&#95;arr&#91;-1&#93;+1,15613980000&#41;:
+    if is&#95;prime&#40;i&#41;:
+        prime&#95;arr.append&#40;i&#41;
+        print i
+</code></pre><p>这一下速度快了不少，运行了24小时了，共找到73620894个质数，最大的数为1476695161，程序还在运行着，看看多少天能找到11位的质数。</p><p><em>2014-03-30 更新:</em></p><p>程序跑了26天才把15613980000以内的质数找完，用GOLANG依照同样的逻辑试了一下让我很惊讶，GOLANG写的程序运行速度是python版的十倍以上。</p><p>为了更充分地说明速度的差距，就花了些精力把golang版完善了一下，第一次运行约19小时程序就被系统killed，第二次也是同样的情况，怀疑是内存的原因；还有就是跑出来的质数会存放在本地文件里，再一次运行就可以读文件后从上次运行结尾处接着找质数，可是GOLANG版的程序一跑就内存溢出。</p><p>我怀疑是<code>a=append&#40;a,i&#41;</code>的原因，但是又找不到替代方案。</p><p>python版慢golang版快，python版本开发简单运行顺利、golang版本开发复杂一些可运行时问题解决不了；python面向程序员的界面更简单，golang中的变量类型数是python的好几倍。</p><p>想到另外一个事，python可以用c来实现计算量密集的部分，那天大概看了一下貌似不复杂，如果有机会我想把launch平台统计模块的计算部分用C写一下。</p></article>
+	<aside>
+		<p>2014-02-28 18:54</p>
+		<p><a href="../tag/%E8%B4%A8%E6%95%B0.html">质数</a> <a href="../tag/%E7%BC%96%E7%A8%8B.html">编程</a> <a href="../tag/%E6%95%B0%E5%AD%A6.html">数学</a> <a href="../tag/python.html">python</a> <a href="../tag/golang.html">golang</a>  </p>
+	</aside>
+	<footer>
+		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	</footer>
+</body>
+</html>

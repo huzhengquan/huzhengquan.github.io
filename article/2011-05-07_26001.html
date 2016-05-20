@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>在linux上安装nginx-FastCGI-Flask - kurrunk</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style type="text/css">
+		body{background-color:#f4f4f4;}
+		header,footer,aside{text-align:center}
+		footer,footer>a{color:#999;font-size:12px;}
+		header>h1{font-size:1em}
+		article{max-width:45em; line-height:150%; margin:auto; background-color:white; padding:1em; border-radius:7px;}
+	</style>
+</head>
+<body>
+	<header>
+	<h1>在linux上安装nginx-FastCGI-Flask</h1>
+	</header>
+	<article><p><img src="http://flask.pocoo.org/docs/_images/logo-full.png" alt="" /></p><p><a href='http://flask.pocoo.org/'>Flask</a>是基于<a href='http://www.python.org'>python</a>、<a href='http://werkzeug.pocoo.org/'>Werkzeug</a>、<a href='http://jinja.pocoo.org/2/'> Jinja 2</a>的一个轻量级WEB框架。python的web框架很多，个性差别很大，找到很久找到了flask，主要是几个原因：轻量级、久仰jinja、pocoo的名声不错。</p><p>主流的linux发行版本上，安装nginx和python都是非常轻松的，比如在archlinux上： <code>#pacman -S nginx python2</code></p><p>利用easy_install安装flask:</p><p>	#easy_install flup 	#easy_install flask</p><p>新建WEB目录：<code>$mkdir www</code> 新建主PY文件:<code>$vim www/app.py</code></p>  <br /><pre><code>#!/usr/bin/env python
+# encoding: utf-8
+from flask import Flask
+app = Flask&#40;&#95;&#95;name&#95;&#95;&#41;
+@app.route&#40;&quot;/&quot;&#41;
+def helloworld&#40;&#41;:
+        return &quot;Hello World!&quot;</code></pre><p>创建fcgi文件：<code>$vim www/fcgi.py</code></p>  <br /><pre><code>#!/usr/bin/env python
+# encoding: utf-8
+from app import app
+from flup.server.fcgi import WSGIServer
+WSGIServer&#40;app,bindAddress='/tmp/flask&#95;le5le.sock'&#41;.run&#40;&#41;</code></pre><p>配置nginx站点： <code># vim /etc/nginx/conf/vhosts/flask.le5le</code></p><pre><code>server{
+         listen 80;
+         server&#95;name flask.le5le.com;
+         location / {
+             include fastcgi&#95;params;
+             fastcgi&#95;param SCRIPT&#95;FILENAME &quot;&quot;;
+             fastcgi&#95;param PATH&#95;INFO $fastcgi&#95;script&#95;name;
+             fastcgi&#95;pass unix:/tmp/flask&#95;le5le.sock;
+                 }
+         }</code></pre><p><code>#vim /etc/nginx/conf/nginx.conf</code> 在http{}中加入vhosts目录：     </p><pre><code>include vhosts/&#42;;</code></pre><p>运行fcgi.py: 	$python www/fcgi.py</p><p>用ROOT帐户修改sock文件权限：</p><p>	#chmod 777 /tmp/flask_le5le.sock</p><p>重启nginx:</p><p>	#/etc/rc.d/nginx restart</p><p>现在用浏览器访问站点就能看到"hello world"了。</p></article>
+	<aside>
+		<p>2011-05-07 23:21:23</p>
+		<p><a href="../tag/%E5%AE%89%E8%A3%85.html">安装</a> <a href="../tag/%E9%85%8D%E7%BD%AE.html">配置</a> <a href="../tag/FastCGI.html">FastCGI</a> <a href="../tag/nginx.html">nginx</a> <a href="../tag/python.html">python</a> <a href="../tag/Flask.html">Flask</a>  </p>
+	</aside>
+	<footer>
+		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	</footer>
+</body>
+</html>

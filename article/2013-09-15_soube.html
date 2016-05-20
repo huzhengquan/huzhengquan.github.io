@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>写了一个blog程序-soube - kurrunk</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style type="text/css">
+		body{background-color:#f4f4f4;}
+		header,footer,aside{text-align:center}
+		footer,footer>a{color:#999;font-size:12px;}
+		header>h1{font-size:1em}
+		article{max-width:45em; line-height:150%; margin:auto; background-color:white; padding:1em; border-radius:7px;}
+	</style>
+</head>
+<body>
+	<header>
+	<h1>写了一个blog程序-soube</h1>
+	</header>
+	<article><p>几年前刚写博客时是在blogger这个平台上写的，后来越玩越大，开始自己在虚拟主机上搭建php blog程序，而现在我写了一个新的blog程序：soube。</p><h3>存储</h3><p>记得最初是不需要数据库的php程序，也就是纯文本的，上传到主机上就行了，在网页上写的文章是以txt文件保存到服务上的。</p><p>后来不知道是为什么，主流的blog程序都是php+mysql的，像wordpress我用了很久。 有几次把blog从wordpress迁移到其它平台，但每次都是不同的原因又迁回wordpress。</p><p>迁来迁去的，在这过程中数据导来导去，多少有一些损失。</p><p>现在我想，数据库只是一个缓存层，不是理想的最终文章存储形态。理想的是什么呢？</p><p>首先数据应该永在，不会因为什么原因丢失blog内容;其次数据读取应该通用，可以在包括手机的多个场景读取和写入；最好还是免费，我忘了这事儿也不会被清除。</p><p>于是，想来想去只有dropbox: 安全、多客户端、免费。</p><h3>格式</h3><p>数据格式很繁杂，现在常用的是html格式，这种格式的好处是web原生，直接在浏览器中渲染，而且html格式能表达复杂的样式。</p><p>html的问题就是太复杂，这是相对blog来讲的。blog的内容都是很简洁的形式，有文字有图片就层级标题就基本满足需要。html虽然表现力强，但更多是视觉方面的强。在语义方面我不是很满意。最不喜欢html的地方是它的复杂及衍生出来的相应的不足：移植成本高，复杂的格式迁移到其它格式时会有很多障碍。</p><p>写blog应该选什么格式呢？github流行用markdown写东西，嗯，这种简洁的语法要比html更适合写blog，写起来也会轻松不少。</p><p>这里我也就随大流，用了markdown。</p><h3>运行环境</h3><p>最初我是先学java的，后接触了php后，觉得php写起来很轻松，后来我又学了python。这次写的这个blog程序运行在jvm平台上，是用一种看上去很牛逼的语言写的: clojure。</p><p>半年前，我记得第一眼看到lisp语法的时候就有一种反感的胃觉，抵触它，在网上看到它的文章马上略过，因为多看一眼都会让我觉得不舒服。</p><p>后来，因为想了解一下元编程,我学了一下ruby。再后来买了一本书《七周七语言》，看了第一遍时，我排斥clojure，因为一是它的语法，二是它的实现是在jvm平台上（感觉像是下等公民），我看上了Io，因为它也灵活、简洁，我下载了api并认真地学习了一小下，可是太过于冷门，不太适合实战。</p><p>后来读了《黑客与画家》才对lisp有了新认识，起码不那么反感了。后来不断地看到相关的文章才接受了圆括号。那是一种很简洁的语法，它用圆括号来表达结构，圆括号的首个符号是函数，其余是参数，就这么简单。</p><p>在lisp和java、在深邃和通用之间的clojure就浮了起来。</p><h3>一些其它的点</h3><h4>中间存储层</h4><p>现在有很多的虚拟环境，像gae bae sae等等，有单一运行环境，在这些环境中可以轻松地部署自己的应用，但这些环境也有一些限制，最主要的就是不能本地写文件。</p><p>数据存储在dropbox上，但不能每次query都去dropbox上读文件，这里不得不弄一个中间存储层，把dropbox的文件存储在本机上。</p><p>存储文章显然k/v数据库更为合适，但是这样的数据库在ae平台可能不是标配，可能还需要购买或者根本就没有。</p><p>中间存储层还是选择了mysql，这个各主机都标配的数据库。</p><h4>多博客支持</h4><p>因为我有两三个博客，所以这个程序做到了支持多博客，只有域名不一样就能在同一个运行程序中共用。</p><h4>移动设备支持</h4><p>我在应用商店下载了一个dropbox第三方的客户端，可以在dropbox写markdown。</p><p>但是，这里有一个不好的地方就是，在dropbox写入了新的文章后必须登录网页“同步”一下才能生效到blog里。</p><p>虽然把网页端做到了能适应手机浏览器，但是还是不太爽。希望能找到更好的实现办法。</p><h3>项目</h3><p>项目代码在github上： <a href='https://github.com/huzhengquan/soube'>soube</a></p><p>现在这个blog已经迁移到soube上了，欢迎提意见也欢迎使用。</p></article>
+	<aside>
+		<p>2013-09-15 18:11:00</p>
+		<p><a href="../tag/clojure.html">clojure</a> <a href="../tag/dropbox.html">dropbox</a> <a href="../tag/blog.html">blog</a> <a href="../tag/soube.html">soube</a>  </p>
+	</aside>
+	<footer>
+		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	</footer>
+</body>
+</html>

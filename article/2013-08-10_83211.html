@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>对比一下php和clojure - kurrunk</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style type="text/css">
+		body{background-color:#f4f4f4;}
+		header,footer,aside{text-align:center}
+		footer,footer>a{color:#999;font-size:12px;}
+		header>h1{font-size:1em}
+		article{max-width:45em; line-height:150%; margin:auto; background-color:white; padding:1em; border-radius:7px;}
+	</style>
+</head>
+<body>
+	<header>
+	<h1>对比一下php和clojure</h1>
+	</header>
+	<article><p>以前写python较多，突然又要写php，看自己的代码发现我对程序的实现有了些改变，最明显的一点就是数据和逻辑在代码中分开。以前用if else多，现在用foreach多。</p><p>以前有一个php项目，对一些数据衍生计算出一些新的指标，比如有pv click，现在要计算“点击率”。实现是通过一个array做为数据，用foreach做计算，发现“除”不好设计，当时是所有衍生指标都是除法，也就没深究，在foreach时都用“除”就行了。</p><p>当前又一个php项目，类似的问题，为了代码的可读性希望能在数据中包含有数学计算的动作，不是只有“除法”。 用php实现了一个看上去很笨的代码：</p>  <br /><pre><code>&lt;?php
+
+$exe=array&#40;
+  &quot;a&quot;=&gt;array&#40;'/','click','pv'&#41;,
+  &quot;b&quot;=&gt;array&#40;'&#42;','click','pri'&#41;,
+  &quot;c&quot;=&gt;array&#40;'-','pv','uv'&#41;,
+  &quot;d&quot;=&gt;array&#40;'+','uv','pri'&#41;,
+&#41;;
+$arr=array&#40;
+  &quot;pv&quot;=&gt;123,
+  &quot;click&quot;=&gt;23,
+  &quot;pri&quot;=&gt;3.2,
+  &quot;uv&quot;=&gt;100,
+&#41;;
+
+foreach&#40;$exe as $k=&gt;$v&#41;{
+  $v1=$arr&#91;$v&#91;1&#93;&#93;;
+  $v2=$arr&#91;$v&#91;2&#93;&#93;;
+  switch&#40;$v&#91;0&#93;&#41;{
+    case '/':
+      $arr&#91;$k&#93;=$v1/$v2;
+      break;
+    case '&#42;':
+      $arr&#91;$k&#93;=$v1&#42;$v2;
+      break;
+    case '-':
+      $arr&#91;$k&#93;=$v1-$v2;
+      break;
+    case '+':
+      $arr&#91;$k&#93;=$v1+$v2;
+      break;
+  }
+}
+print&#95;r&#40;$arr&#41;;</code></pre><p>结果数据是：</p><pre><code>Array
+&#40;
+    &#91;pv&#93; =&gt; 123
+    &#91;click&#93; =&gt; 23
+    &#91;pri&#93; =&gt; 3.2
+    &#91;uv&#93; =&gt; 100
+    &#91;a&#93; =&gt; 0.1869918699187
+    &#91;b&#93; =&gt; 73.6
+    &#91;c&#93; =&gt; 23
+    &#91;d&#93; =&gt; 103.2
+&#41;</code></pre><p>这个能满足项目需求，但实现的缺少美感，很生硬。最近在学clojure,于是用clojure试着实现一下。</p><pre><code>&#40;def exe {:a &#91;/ :click :pv&#93;
+          :b &#91;&#42; :click :pri&#93;
+          :c &#91;- :pv :uv&#93;
+          :d &#91;&#42; :uv :pri&#93;}&#41;
+
+&#40;def dict {:pv 123
+           :click 23
+           :pri 3.2
+           :uv 100}&#41;
+
+&#40;println &#40;into dict
+               &#40;map &#40;fn &#91;p&#93;
+                      &#40;let &#91;&#91;k &#91;e-fn &amp; e-keys&#93;&#93; p&#93;
+                        {k &#40;apply e-fn &#40;map dict e-keys&#41;&#41;}&#41;&#41;
+                    exe&#41;&#41;&#41;</code></pre><p>结果：     </p><pre><code>{:a 23/123, :c 23, :click 23, :b 73.60000000000001, :d 320.0, :pv 123, :uv 100, :pri 3.2}</code></pre><p>对比一下实现结果:</p><ul><li>clojure的实现更强大一些，扩展起来更简单，支持“加减乘除”之外的任意的计算方式，只需要在exe数据中增加相关内容就行，而且参与计算的数据个数也不局限在两个，可以增加多个数据。<ul><li>clojure结果的":a"显示"23/123"，惰性求值，这样可以保持数据继续计算后的精度。</li><li>clojure结果中的":b"，是float类型，有精度损失。</li><li>php的代码容易上手，直接告诉解析器怎么做，而clojure的抽象程度高一些，初次接触不容易理解(我也是试了多次)。</li></ul></li></ul><p>php中有eval，这函数可以把字符串当做php代码执行，如果在php中用上eval可能功能上会通用一些，那样就可以用"$1/$2"的形式，嗯，会大大简化代码量，不再需要switch了。虽然我没尝试过，但也知道eval的性能肯定是个问题。另外php的数学运算是中缀形式，而lisp是函数前缀，这样lisp的方式简单不会岐义，一个表达式支持灵活的参数，比如加法运算，如果用php的eval实现灵活的参数个数就需要多一层的抽象。</p><p>我对编程语言是有一种畏惧的心态，对任何编程语言都不能轻率地下结论，认识有限、知识无限。这里仅从我的认识简单对比一下实现结果，相信php有超出我知识范围的实现。</p></article>
+	<aside>
+		<p>2013-08-10 03:42:15</p>
+		<p><a href="../tag/clojure.html">clojure</a> <a href="../tag/%E7%BC%96%E7%A8%8B.html">编程</a> <a href="../tag/php.html">php</a> <a href="../tag/lisp.html">lisp</a>  </p>
+	</aside>
+	<footer>
+		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	</footer>
+</body>
+</html>
