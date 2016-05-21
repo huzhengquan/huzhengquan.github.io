@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <rss version='2.0' xmlns:atom='http://www.w3.org/2005/Atom'>
 <channel>
-<atom:link href='http://huzhengquan.num.run' rel='self' type='application/rss+xml'/>
+<atom:link href='http://hzq.num.run' rel='self' type='application/rss+xml'/>
 <title>
 浆糊糊
 </title>
 <link>
-http://huzhengquan.num.run
+http://hzq.num.run
 </link>
 <description>
 环行在环行的环行中环行
@@ -15,7 +15,7 @@ http://huzhengquan.num.run
 zh-CN
 </language>
 <lastBuildDate>
-Sat, 21 May 2016 17:10:33 +0800
+Sat, 21 May 2016 17:22:55 +0800
 </lastBuildDate>
 <generator>
 clj-rss
@@ -31,10 +31,10 @@ Sat, 23 Jan 2016 00:00:00 +0800
 <![CDATA[ 我的2015   ]]>
 </title>
 <link>
-http://huzhengquan.num.run/article/2016-01-20_my_2015.html
+http://hzq.num.run/article/2016-01-20_my_2015.html
 </link>
 <guid>
-http://huzhengquan.num.run/article/2016-01-20_my_2015.html
+http://hzq.num.run/article/2016-01-20_my_2015.html
 </guid>
 </item>
 <item>
@@ -48,10 +48,10 @@ Wed, 13 Jan 2016 00:00:00 +0800
 <![CDATA[ 业余项目-打字学英语  ]]>
 </title>
 <link>
-http://huzhengquan.num.run/article/2016-01-13_project_learn_english.html
+http://hzq.num.run/article/2016-01-13_project_learn_english.html
 </link>
 <guid>
-http://huzhengquan.num.run/article/2016-01-13_project_learn_english.html
+http://hzq.num.run/article/2016-01-13_project_learn_english.html
 </guid>
 </item>
 <item>
@@ -65,10 +65,10 @@ Mon, 11 Jan 2016 00:00:00 +0800
 <![CDATA[ 新方向 && 招聘   ]]>
 </title>
 <link>
-http://huzhengquan.num.run/article/2016-01-11_new_work.html
+http://hzq.num.run/article/2016-01-11_new_work.html
 </link>
 <guid>
-http://huzhengquan.num.run/article/2016-01-11_new_work.html
+http://hzq.num.run/article/2016-01-11_new_work.html
 </guid>
 </item>
 <item>
@@ -82,10 +82,10 @@ Sat, 09 Jan 2016 00:00:00 +0800
 <![CDATA[ 快播案   ]]>
 </title>
 <link>
-http://huzhengquan.num.run/article/2016-01-09_kuaibo.html
+http://hzq.num.run/article/2016-01-09_kuaibo.html
 </link>
 <guid>
-http://huzhengquan.num.run/article/2016-01-09_kuaibo.html
+http://hzq.num.run/article/2016-01-09_kuaibo.html
 </guid>
 </item>
 <item>
@@ -99,10 +99,10 @@ Sat, 02 Jan 2016 00:00:00 +0800
 <![CDATA[ 你   ]]>
 </title>
 <link>
-http://huzhengquan.num.run/article/2016-01-02_you.html
+http://hzq.num.run/article/2016-01-02_you.html
 </link>
 <guid>
-http://huzhengquan.num.run/article/2016-01-02_you.html
+http://hzq.num.run/article/2016-01-02_you.html
 </guid>
 </item>
 <item>
@@ -116,10 +116,10 @@ Sun, 14 Jun 2015 00:00:00 +0800
 <![CDATA[ 死亡和数据、人脑和电脑 ]]>
 </title>
 <link>
-http://huzhengquan.num.run/article/2015-06-14_hub_die.html
+http://hzq.num.run/article/2015-06-14_hub_die.html
 </link>
 <guid>
-http://huzhengquan.num.run/article/2015-06-14_hub_die.html
+http://hzq.num.run/article/2015-06-14_hub_die.html
 </guid>
 </item>
 <item>
@@ -133,10 +133,10 @@ Fri, 24 Apr 2015 00:00:00 +0800
 <![CDATA[ 骑行太行山(张安北-野沟门-龙泉寺) ]]>
 </title>
 <link>
-http://huzhengquan.num.run/article/2015-04-24_qixing.html
+http://hzq.num.run/article/2015-04-24_qixing.html
 </link>
 <guid>
-http://huzhengquan.num.run/article/2015-04-24_qixing.html
+http://hzq.num.run/article/2015-04-24_qixing.html
 </guid>
 </item>
 <item>
@@ -150,10 +150,10 @@ Sat, 03 Jan 2015 00:00:00 +0800
 <![CDATA[ 我的2014年 ]]>
 </title>
 <link>
-http://huzhengquan.num.run/article/2015-01-03_my_2014.html
+http://hzq.num.run/article/2015-01-03_my_2014.html
 </link>
 <guid>
-http://huzhengquan.num.run/article/2015-01-03_my_2014.html
+http://hzq.num.run/article/2015-01-03_my_2014.html
 </guid>
 </item>
 <item>
@@ -167,10 +167,10 @@ Sat, 13 Dec 2014 00:00:00 +0800
 <![CDATA[ 环行（中） ]]>
 </title>
 <link>
-http://huzhengquan.num.run/article/2014-12-08_write_huanxing_2.html
+http://hzq.num.run/article/2014-12-08_write_huanxing_2.html
 </link>
 <guid>
-http://huzhengquan.num.run/article/2014-12-08_write_huanxing_2.html
+http://hzq.num.run/article/2014-12-08_write_huanxing_2.html
 </guid>
 </item>
 <item>
@@ -184,10 +184,10 @@ Sun, 07 Dec 2014 00:00:00 +0800
 <![CDATA[ 环行（上） ]]>
 </title>
 <link>
-http://huzhengquan.num.run/article/2014-12-07_write_huanxing.html
+http://hzq.num.run/article/2014-12-07_write_huanxing.html
 </link>
 <guid>
-http://huzhengquan.num.run/article/2014-12-07_write_huanxing.html
+http://hzq.num.run/article/2014-12-07_write_huanxing.html
 </guid>
 </item>
 </channel>
