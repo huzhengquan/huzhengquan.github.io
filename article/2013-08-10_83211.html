@@ -75,11 +75,11 @@ print&#95;r&#40;$arr&#41;;</code></pre><p>结果数据是：</p><pre><code>Array
                         {k &#40;apply e-fn &#40;map dict e-keys&#41;&#41;}&#41;&#41;
                     exe&#41;&#41;&#41;</code></pre><p>结果：     </p><pre><code>{:a 23/123, :c 23, :click 23, :b 73.60000000000001, :d 320.0, :pv 123, :uv 100, :pri 3.2}</code></pre><p>对比一下实现结果:</p><ul><li>clojure的实现更强大一些，扩展起来更简单，支持“加减乘除”之外的任意的计算方式，只需要在exe数据中增加相关内容就行，而且参与计算的数据个数也不局限在两个，可以增加多个数据。<ul><li>clojure结果的":a"显示"23/123"，惰性求值，这样可以保持数据继续计算后的精度。</li><li>clojure结果中的":b"，是float类型，有精度损失。</li><li>php的代码容易上手，直接告诉解析器怎么做，而clojure的抽象程度高一些，初次接触不容易理解(我也是试了多次)。</li></ul></li></ul><p>php中有eval，这函数可以把字符串当做php代码执行，如果在php中用上eval可能功能上会通用一些，那样就可以用"$1/$2"的形式，嗯，会大大简化代码量，不再需要switch了。虽然我没尝试过，但也知道eval的性能肯定是个问题。另外php的数学运算是中缀形式，而lisp是函数前缀，这样lisp的方式简单不会岐义，一个表达式支持灵活的参数，比如加法运算，如果用php的eval实现灵活的参数个数就需要多一层的抽象。</p><p>我对编程语言是有一种畏惧的心态，对任何编程语言都不能轻率地下结论，认识有限、知识无限。这里仅从我的认识简单对比一下实现结果，相信php有超出我知识范围的实现。</p></article>
 	<aside>
-		<p>2013-08-10 03:42:15</p>
+		<p>2013-08-10</p>
 		<p><a href="../tag/clojure.html">clojure</a> <a href="../tag/%E7%BC%96%E7%A8%8B.html">编程</a> <a href="../tag/php.html">php</a> <a href="../tag/lisp.html">lisp</a>  </p>
 	</aside>
 	<footer>
-		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	<p><a href="https://github.com/huzhengquan/kiln">kiln</a>驱动</p>
 	</footer>
 </body>
 </html>

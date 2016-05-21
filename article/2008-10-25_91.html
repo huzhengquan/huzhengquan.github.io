@@ -18,11 +18,11 @@
 	</header>
 	<article><p>我的摄像头(Microdia PC Camera (SN9C325 + OM6802))一直不能用，很苦恼，据说新linux内核(2.6.27)改进了 gspca 驱动对视频摄像头的支持，但DEBIAN源中一天两天又不会出现软件包，于是就看了一些贴子开始了在debian中编译内核：</p><p>	#apt-get install kernel-package libncurses5-dev fakeroot wget bzip2 build-essential</p><p>安装必要的软件包。</p><p>	#wget http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.27.3.tar.bz2 	#mv linux-2.6.27.3.tar.bz2 /usr/src/ 	#cd /usr/src/</p><p>到 <a href='http://www.kernel.org/'>http://www.kernel.org/</a> 下载源码包：<a href='http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.27.3.tar.bz2'>linux-2.6.27.3.tar.bz2</a> 。并转移到/usr/src目录。</p><p>	#tar xvf linux-2.6.27.3.tar.bz2 	#cd linux-2.6.27.3</p><p>解压缩，进linux-2.6.27.3目录。</p><p>	#make clean 	#make mrproper 	#make menuconfig</p><p>清理临时文件、不必要的文件和目录；生成.config</p><p>	#make-kpkg clean 	#fakeroot make-kpkg &ndash;initrd &ndash;append-to-version=-phecda-org &ndash;revision=1.0 kernel<i>image kernel</i>headers</p><p>开始编译。</p><p>其中"&ndash;append-to-version"参数是显示在内核版本后面的文字，&ndash;revision是小版本，我上面的写法生成内核后名字为：linux-image-2.6.27.3-phecda-org_1.0；</p><p>这过程很漫长，我等了约九十分钟。</p><p>结果会在/usr/src/目录创建两个deb文件。</p><p>	#cd /usr/src 	#dpkg -i linux-image-2.6.27.3-phecda-org<i>1.0</i>amd64.deb 	#dpkg -i linux-headers-2.6.27.3-phecda-org<i>1.0</i>amd64.deb</p><p>这样内核就装好了，GRUB也已经更新了，重新后就能在grub中看到刚编译的新内核。</p><p>&#45;&#45;&#45;&#45;&mdash;&mdash;&mdash;&ndash;</p><p>很遗憾最后我还是不能用摄像头。</p></article>
 	<aside>
-		<p>2008-10-25 00:49:21</p>
+		<p>2008-10-25</p>
 		<p><a href="../tag/debian.html">debian</a> <a href="../tag/linux.html">linux</a> <a href="../tag/%E7%BC%96%E8%AF%91%E5%86%85%E6%A0%B8.html">编译内核</a>  </p>
 	</aside>
 	<footer>
-		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	<p><a href="https://github.com/huzhengquan/kiln">kiln</a>驱动</p>
 	</footer>
 </body>
 </html>

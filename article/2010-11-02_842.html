@@ -18,11 +18,11 @@
 	</header>
 	<article><h3>zssh</h3><p>身边的人都用SecureCRT，一个强大的ssh客户端。例如有两个SSH服务，分别为A机和B机，A机没有写权限，B机不能直接用SSH客户端登录，需要先登录A机，然后再从A机登录B机。如果是这样再需要把本地的文件传到B机上就不知道怎么办了。但如果SecureCRT就可以用rz上传，在B机的路径下输入rz就会跳出个文件选择窗口……很方便。</p><p>在apt中搜索到一个zssh，查了下果然就是它，用法是： 像用ssh命令一样用zssh登录主机； 在命令输入状态中按下ctrl+2(@键)进入zssh状态； $sz 本地文件名 [可选参数-be:二进制方式] 上传文件完成（我在用时输出了一些乱码，但没影响上传） 下载是反出来的，先sz文件再ctrl+2再输入rz</p><p>更新：在archlinux上安装zssh须在AUR中找包，安装时依赖没有解决好，还需要安装lrzsz，否则在下载文件时会报：execvp rz zssh，同时整个终端挂掉。</p><h3>Terminator</h3><p>这个工具不多说了，应该只是一个终端的外壳，但是鼠标右键有切割窗口的能力。</p></article>
 	<aside>
-		<p>2010-11-02 09:53:37</p>
+		<p>2010-11-02</p>
 		<p><a href="../tag/%E5%B7%A5%E5%85%B7.html">工具</a> <a href="../tag/linux.html">linux</a> <a href="../tag/zssh.html">zssh</a> <a href="../tag/ssh.html">ssh</a> <a href="../tag/Terminator.html">Terminator</a>  </p>
 	</aside>
 	<footer>
-		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	<p><a href="https://github.com/huzhengquan/kiln">kiln</a>驱动</p>
 	</footer>
 </body>
 </html>

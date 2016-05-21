@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title></title>
+	<title>Debian中安装lighttpd+php+mysql+Drupal </title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<style type="text/css">
@@ -14,15 +14,32 @@
 </head>
 <body>
 	<header>
-	<h1></h1>
+	<h1>Debian中安装lighttpd+php+mysql+Drupal </h1>
 	</header>
-	<article><p><!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title></title> <link rel="stylesheet" type="text/css" href="/var/mobile/Containers/Data/Application/5D8F237C-7730-4381-BD94-C6CD98C12B9D/Documents/default.css?version=473497983.113771" /> <link rel="stylesheet" type="text/css" href="styles.css?version=473497983.113771" /> </head> <body> <p>date: 2008-03-29 11:25:14 layout: post id: 13 title: Debian中安装lighttpd+php+mysql+Drupal categories: 几束 tags: lighttpd,linux,mysql,php,安装</p></p><p><p>在Linux中架设网站其实不难，在Debian中更简单。</p></p><p><p>Linux操作系统用Debian，http服务器软件用lighttpd，它是个轻量级的服务器软件，如今很多酷站都有它的身影，动态语言用php，数据库用mysql，CMS用Drupal。</p></p><p><h4>安装：</h4></p><p><pre><code>#apt-get install lighttpd php5-cgi php5-mysql mysql-server php5-gd </code></pre></p><p><p>php5-gd是绘图库</p></p><p><h4>配置：</h4></p><p><pre><code>#vi /etc/php5/cgi/php.ini </code></pre></p><p><p>找到&ldquo;cgi.fix<i>pathinfo=0&rdquo;改为&ldquo;cgi.fix</i>pathinfo=1&rdquo;(文档中部)</p></p><p><pre><code>#vi /etc/lighttpd/lighttpd.conf </code></pre></p><p><p>更改网站目录：server.document-root =&ldquo;/home/hu/www/endd.cn&rdquo;</p></p><p><p>server.modules项增加一行，内容为：</p></p><p><pre><code>"mod_fastcgi" </code></pre></p><p><p>文件中添加：</p></p><p><pre><code>fastcgi.server = (".php" =&gt; (( "bin-path" =&gt; "/usr/bin/php5-cgi", "socket" =&gt; "/tmp/php.socket" ))) </code></pre></p><p><p>因为我们的网站不喜欢.php?p=**格式的URL，所以还需要把&ldquo;mod_rewrite&rdquo;前的注释去掉。 在文件中加内容：</p></p><p><pre><code>fastcgi.server=( “.php” =&gt; (( “bin-path” =&gt; “/usr/bin/php5-cgi”, “socket” =&gt; “/tmp/php.socket” ))) url.rewrite-final =( "<sup>/([</sup><sup>.?]<em>)\?(.</em>)$"</sup> =&gt; "/index.php?q=$1&amp;$2", "<sup>/([</sup><sup>.?]*)$"</sup> =&gt; "/index.php?q=$1" ) </code></pre></p><p><h4>安装drupal：</h4></p><p><p>去官网下载软件包：<a href="http://www.drupalchina.org">http://www.drupalchina.org</a></p></p><p><pre><code>#tar zxvf drupal-6.1.tar<h1>mv drupal-6.1/* /home/hu/www/endd.cn</h1><h1>mysqld &amp;</h1><h1>/etc/init.d/lighttpd start</h1></code></pre></p><p><p>访问http://localhost就可以看到drupal的安装界面了，一路下一步一个功能完备的网站就OK了！</p> </body> </html></p></article>
+	<article><p>在Linux中架设网站其实不难，在Debian中更简单。</p><p>Linux操作系统用Debian，http服务器软件用lighttpd，它是个轻量级的服务器软件，如今很多酷站都有它的身影，动态语言用php，数据库用mysql，CMS用Drupal。</p><p>安装：</p><pre><code>#apt-get install lighttpd php5-cgi php5-mysql mysql-server php5-gd
+</code></pre><p>php5-gd是绘图库</p><p>配置：</p><h1>vi /etc/php5/cgi/php.ini</h1>找到“cgi.fix<i>pathinfo=0”改为“cgi.fix</i>pathinfo=1”(文档中部)<h1>vi /etc/lighttpd/lighttpd.conf</h1>更改网站目录：server.document-root =“/home/hu/www/endd.cn”<p>server.modules项增加一行，内容为：</p><p>"mod_fastcgi" 文件中添加：<pre><code>fastcgi.server = &#40;&quot;.php&quot; =&gt; &#40;&#40;
+&quot;bin-path&quot; =&gt; &quot;/usr/bin/php5-cgi&quot;,
+&quot;socket&quot; =&gt; &quot;/tmp/php.socket&quot;
+&#41;&#41;&#41;
+ </code></pre> 因为我们的网站不喜欢.php?p=**格式的URL，所以还需要把“mod_rewrite”前的注释去掉。 在文件中加内容：<pre><code>fastcgi.server=&#40; “.php” =&gt; &#40;&#40;
+“bin-path” =&gt; “/usr/bin/php5-cgi”,
+“socket” =&gt; “/tmp/php.socket”
+&#41;&#41;&#41;
+url.rewrite-final =&#40;
+&quot;&#94;/&#40;&#91;&#94;.?&#93;&#42;&#41;\?&#40;.&#42;&#41;$&quot; =&gt; &quot;/index.php?q=$1&amp;$2&quot;,
+&quot;&#94;/&#40;&#91;&#94;.?&#93;&#42;&#41;$&quot; =&gt; &quot;/index.php?q=$1&quot;
+&#41;
+ </code></pre> 安装drupal：</p><p>去官网下载软件包：http://www.drupalchina.org<pre><code>#tar zxvf drupal-6.1.tar
+#mv drupal-6.1/&#42; /home/hu/www/endd.cn
+#mysqld &amp;
+#/etc/init.d/lighttpd start
+ </code></pre> 访问http://localhost就可以看到drupal的安装界面了，一路下一步一个功能完备的网站就OK了！</p></article>
 	<aside>
-		<p>2016-01-03</p>
-		<p> </p>
+		<p>2008-03-29</p>
+		<p><a href="../tag/mysql.html">mysql</a> <a href="../tag/%E5%AE%89%E8%A3%85.html">安装</a> <a href="../tag/linux.html">linux</a> <a href="../tag/php.html">php</a> <a href="../tag/lighttpd.html">lighttpd</a>  </p>
 	</aside>
 	<footer>
-		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	<p><a href="https://github.com/huzhengquan/kiln">kiln</a>驱动</p>
 	</footer>
 </body>
 </html>

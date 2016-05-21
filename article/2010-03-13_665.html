@@ -18,11 +18,11 @@
 	</header>
 	<article><p>最早安装过red hat、<a href='http://fedoraproject.org/'>Fedora core</a>(现在Fedora)、<a href='http://www.ubuntu.com/'>UBUNTU</a>可都没能真正用起来，都只不过是反复安装了几次而已。后来安装了ADSL，能上网后才真正用上了linux。</p><p>那时候用的是<a href='http://www.debian.org/'>Debian</a>，在Debian上花费了大量的时间和心血，仍然有问题没有解决，比如flash插件的amd64支持问题（现在还是不明白为啥选amd64的核心）。</p><p>两年后一个偶然的机会把<a href='http://www.archlinux.org/'>Arch Linux</a>从垃圾框中捡了回来，恍然间……世界清静了，Arch Linux的配置是那么的容易理解，这个时候flash插件也有64位版的，但是异常不稳定，导致Firefox一打开有flash的网页就会崩溃（表扬一下chromium和opera，不会受flash影响），而且在用skype视频的时候，对方看不到我的图像。</p><p>又过了两年（就是现在）：用了七整天的时间安装上了<a href='http://www.gentoo.org/'>gentoo</a>，有两个晚上都是通宵安装，直到前天，系统才可以算是基本可用了，这两天又不停编辑配置文件。现在对于Gentoo有些心得，在这里谈谈，或许能看到一些新的东西。</p><h3>长时间的emerge(安装)</h3><p>我安装gentoo用了7整天的时间，其中拐了很多的弯，第一次安装时因为文件系统的格式而废。即使现在重新安装的话，我估计也得24小时的时间，就这还没安装gnome等大型的桌面管理系统。</p><p>在Debian和ArchLinux上安装软件的时间中wget占用大部分，但在gentoo上make的时间恐怕要是下载源码时间的50倍靠上，看着CPU一直是100%、看着屏幕不停地刷、睡醒后软件还没安装完……不免很是厌倦。</p><h3>系统运行的速度</h3><p>并不快，从开机到登录界面，从startx到X窗口显示出来，从按下快键到软件启动，都不快，至少比之前的ArchLinux要慢很多，这是最失望的地方，因为别人都说gentoo是编译型系统所以理应快。这也可能是我没有针对性进行配置。</p><h3>选择</h3><p>gentoo相对其它发行版的特色是“编译”，但我觉得Gentoo最大的特色是“选择”。</p><p>在我安装好xorg、输入法、urxvt等必要的桌面软件后就开始安装pidgin，按“常识”用了很长时间安装好了后，运行时发现没有qq协议。经过搜索才清楚是怎么回事。</p><p>在Gentoo中，软件都有USE标记，我刚安装的gentoo只设置了一些默认的USE（没QQ），在编译pidgin时就不会编译QQ部分。</p><p>再比如系统中没在USE中设置gtk，那么安装mldonkey时就不会包含GUI界面。</p><p>在以前，我喜欢给自己找使用<a href='http://blog.kurrunk.com/archives/tag/linux'>Linux</a>的理由，理由是“选择”，那时的“选择”是软件的选择，比如你可以用gnome也可以用KDE。现在，“选择”又有了新的含义，不单软件选择的自由，还包括软件模块的自由。</p><h3>文档支持</h3><p>gentoo的文档算是很不错的，不论什么问题几乎都能在官方WIKI上找到答案。</p><p>但是我觉得这方面ArchLinux做的要更好，入口清晰（gentoo文档分散，有些是通过google:site:gentoo.org找到的），文档全面。</p><h3>没有障碍</h3><p>在debian时期flash插件困扰着我，Archlinux时期还是不能很好地运行FLASH插件，到Gentoo竟然完好支持flash插件，这是我最大的意外。</p><p>经过我反复的尝试，上网本上的摄像头、无线网卡、声音、显卡等硬件已经支持。</p><h3>会用gentoo多长时间？</h3><p>想想这几年的经历，总是不到两年必换个环境，不单是操作系统，工作也是同样的周期，我想这是我应该反思的。</p><p>gentoo并不是我十分满意的系统，不喜欢它的emerge，但很喜欢USE的选择。这是不是事物的两面性？只有编译才能选择模块安装？如果分发的是两进制包并能使用USE就好了。</p><p>现在已经有些怀念ArchLinux的pacman了，实在不知道会在哪一天把Gentoo删掉。</p><p>当然会尝试着优化一下，但是估计不会有什么效果，至少现在除了内核参数优化之外还想不到其它优化的法门。</p><p>本是要上传一张只占七十多兆内存的桌面截图，看到flickr的图片都不能显示了，不上传了。</p></article>
 	<aside>
-		<p>2010-03-13 14:22:44</p>
+		<p>2010-03-13</p>
 		<p><a href="../tag/USE.html">USE</a> <a href="../tag/debian.html">debian</a> <a href="../tag/linux.html">linux</a> <a href="../tag/emerge.html">emerge</a> <a href="../tag/flash.html">flash</a> <a href="../tag/Gentoo.html">Gentoo</a> <a href="../tag/ArchLinux.html">ArchLinux</a>  </p>
 	</aside>
 	<footer>
-		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	<p><a href="https://github.com/huzhengquan/kiln">kiln</a>驱动</p>
 	</footer>
 </body>
 </html>

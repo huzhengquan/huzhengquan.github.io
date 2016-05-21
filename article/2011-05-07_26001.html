@@ -37,11 +37,11 @@ WSGIServer&#40;app,bindAddress='/tmp/flask&#95;le5le.sock'&#41;.run&#40;&#41;</c
                  }
          }</code></pre><p><code>#vim /etc/nginx/conf/nginx.conf</code> 在http{}中加入vhosts目录：     </p><pre><code>include vhosts/&#42;;</code></pre><p>运行fcgi.py: 	$python www/fcgi.py</p><p>用ROOT帐户修改sock文件权限：</p><p>	#chmod 777 /tmp/flask_le5le.sock</p><p>重启nginx:</p><p>	#/etc/rc.d/nginx restart</p><p>现在用浏览器访问站点就能看到"hello world"了。</p></article>
 	<aside>
-		<p>2011-05-07 23:21:23</p>
+		<p>2011-05-07</p>
 		<p><a href="../tag/%E5%AE%89%E8%A3%85.html">安装</a> <a href="../tag/%E9%85%8D%E7%BD%AE.html">配置</a> <a href="../tag/FastCGI.html">FastCGI</a> <a href="../tag/nginx.html">nginx</a> <a href="../tag/python.html">python</a> <a href="../tag/Flask.html">Flask</a>  </p>
 	</aside>
 	<footer>
-		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	<p><a href="https://github.com/huzhengquan/kiln">kiln</a>驱动</p>
 	</footer>
 </body>
 </html>

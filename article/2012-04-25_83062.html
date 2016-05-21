@@ -18,11 +18,11 @@
 	</header>
 	<article><p>今天又要画流程图，找了一下找到一个有趣的软件：<a href='http://www.graphviz.org/'>graphviz</a>，在archlinux中可以直接安装。</p><blockquote><p> <strong>Graphviz</strong> （<i>Graph Visualization Software</i>的缩写）是一个由<a href='http://zh.wikipedia.org/w/index.php?title=AT%26T%E5%AE%9E%E9%AA%8C%E5%AE%A4&action=edit&redlink=1'>AT&T实验室</a>启动的开源工具包，用于绘制<a href='http://zh.wikipedia.org/wiki/DOT%E8%AF%AD%E8%A8%80'>DOT语言</a>脚本描述的图形。它也提供了供其它软件使用的库。 </p></blockquote><p>印象中的画图软件都是和photoshop一样，有一个窗口，有一堆的图案，用鼠标画。但是graphviz却可以像写代码一个画流程图。</p><p>比如，用文本文件编辑test.dot:</p><p>	digraph G{ <br /> 	"身份验证"->"功能列表"[label="通过"]; <br /> 	"身份验证"->"登录页"[label="拒绝"]; <br /> 	"功能列表"->"新建实验"; <br /> 	"功能列表"->"实验列表"; <br /> 	"实验列表"->"查看实验"; <br /> 	}</p><p>然后执行命令：</p><p>	$dot test.dot -Tpng -o test.png</p><p>这样就会生成一个png文件.</p></article>
 	<aside>
-		<p>2012-04-25 05:56:31</p>
+		<p>2012-04-25</p>
 		<p><a href="../tag/%E8%BD%AF%E4%BB%B6.html">软件</a> <a href="../tag/Graphviz.html">Graphviz</a> <a href="../tag/DOT%E8%AF%AD%E8%A8%80.html">DOT语言</a> <a href="../tag/%E5%BC%80%E6%BA%90.html">开源</a>  </p>
 	</aside>
 	<footer>
-		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	<p><a href="https://github.com/huzhengquan/kiln">kiln</a>驱动</p>
 	</footer>
 </body>
 </html>

@@ -18,11 +18,11 @@
 	</header>
 	<article><p>JDK有图像处理，但处理效果不能说好，在缩小JPEG图形时很明显会失真，于是就找到了大名鼎鼎的<a href='http://www.imagemagick.org'>ImageMagick</a>，而<a href='http://www.jmagick.org'>jmagick</a>是ImageMagick的java应用的接口。</p><p>我的系统环境是archlinux-amd64、tomcat、sun-jdk。</p><p>archlinux安装imagemagick：</p><p>	#pacman -S imagemagick</p><p>到jmagick下载<a href='http://downloads.jmagick.org/6.2.6/JMagick-6.2.6-0.tar.gz'>JMagick-6.2.6-0.tar.gz</a>，6.2.6似乎是最新版本，下载地址：<a href='http://downloads.jmagick.org/6.2.6/'>http://downloads.jmagick.org/6.2.6/</a>，然后是解压并安装：</p><p>	#tar zxvf JMagick-6.2.6-0.tar.gz 	#cd JMagick-6.2.6-0 	#./configure &ndash;with-java-home=/opt/java &ndash;prefix=/opt/jmagick 	#make all 	#make install 	#cp lib/libJMagick.so /opt/java/jre/lib/amd64/ 	#cp lib/jmagick.jar /opt/java/jre/lib/ext/</p><p>以上"/opt/java"是JAVA_HOME的目录，"/opt/jmagick"是jmagick的安装目录。</p><p>我是要在tomcat中使用imagemagick，所以还要把jmagick.jar复制到tomcat的lib目录中：</p><p>	#cp lib/jmagick.jar /home/hu/www/k7/WEB-INF/lib</p><p>这样就可以在servlet中使用imagemagick了。</p></article>
 	<aside>
-		<p>2009-01-17 12:11:41</p>
+		<p>2009-01-17</p>
 		<p><a href="../tag/imagemagick.html">imagemagick</a> <a href="../tag/jmagick.html">jmagick</a>  </p>
 	</aside>
 	<footer>
-		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	<p><a href="https://github.com/huzhengquan/kiln">kiln</a>驱动</p>
 	</footer>
 </body>
 </html>

@@ -18,11 +18,11 @@
 	</header>
 	<article><p>我们在网上几乎没有隐私，个人电脑中回收站中的裸照都能被人发掘出来更何况网络，我们在网络上的一段文字不知道经过多少双眼睛的扫描。</p><p>说说我前两天做的<a href='http://jellyfish.phecda.org/'>jellyfish</a>，一种文字加密的应用，前端只能是根据使用者设定的密码访问的，并且在服务器上的存储也是加密的格式(字符串->二进制码)，也就是说即使看到数据库存储的数据也只是看到一堆二进制码，如果失去密码，文字就再也找不回来了。</p><p>实现原理其实并不复杂：</p><ol><li>对文字做上记号;<ol><li>根据一串字符(设定的密码)对文字进行加密，加密成二进制数据;</li></ol></li></ol><p>取得文字的步骤：</p><ol><li>尝试用一串字符(输入的密码)对二进制数据解密;<ol><li>寻找文字加密前做的记号;</li><li>如果找到记号则认为密码有效，并取得过滤掉记号的文字，否则失败。</li></ol></li></ol><p>不知道网络有没有其他加密储存方式？如果有人看到这篇文章并且知道一些网络加密的技术欢迎交流心得。</p></article>
 	<aside>
-		<p>2009-04-08 12:54:00</p>
+		<p>2009-04-08</p>
 		<p><a href="../tag/%E5%8A%A0%E5%AF%86.html">加密</a> <a href="../tag/jellyfish.html">jellyfish</a> <a href="../tag/%E6%96%87%E5%AD%97%E5%8A%A0%E5%AF%86.html">文字加密</a>  </p>
 	</aside>
 	<footer>
-		<a href="https://github.com/huzhengquan/kiln">kiln</a>驱动
+	<p><a href="https://github.com/huzhengquan/kiln">kiln</a>驱动</p>
 	</footer>
 </body>
 </html>
