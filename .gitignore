@@ -1,3 +1,4 @@
 *.jar
 *.swp
 .DS_Store
+.Ulysses-Group.plist
