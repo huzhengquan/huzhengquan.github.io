@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>静态blog生成器:kiln</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="keywords" content="clojure, blog, lisp, 项目, kiln, " />
+	<style type="text/css">
+		body{background-color:#f4f4f4;}
+		header,footer,aside{text-align:center}
+		footer,footer a{color:#999;font-size:12px;}
+		header>h1{font-size:1em}
+		article{max-width:36em; line-height:170%; margin:auto; background-color:white; padding:1.5em; border-radius:7px;}
+	</style>
+</head>
+<body>
+	<header>
+	<h1>静态blog生成器:kiln</h1>
+	</header>
+	<article><p>春节的时候，用了好几天帮一个老朋友做了一个<em>微信公众号文章+悬浮广告</em>的文章生成器，在本地写文章并配置广告物料后，这个工具会把内容格式化HTML页面，这个工具就是kiln。</p><p>那个朋友不太靠谱，这个工具对他而言似乎没什么用。而我就把这个工具扔在github上了。</p><p>我的blog不太简洁，依赖多，一直想换上静态博客。就用kiln进一步精减并加入rss生成功能，就是现在的kiln。</p><ul><li>支持markdown内容;</li><li>支持自定义HTML模板;</li><li>用tag分类;</li><li>简洁的文章样式;</li><li>可通过rss订阅;</li><li>生成的是纯<em>浏览器内容</em>(html)</li></ul><p>用clojure写的，感觉越来越好了，clojure很好用，唯一遗憾的是如果不用纯java包的话，clojure包比较少，比如rss模块，找了半天就找到一个能用的:clj-rss。我还是不太喜欢用java，毕竟风格差别挺大，而且自己也不太熟悉。</p><p>lisp对我是有很大吸引力的，而且越来越亲切；函数式编程也很舒服，终于可以不去搞对象了。</p><p><a href='https://github.com/huzhengquan/kiln'>kiln</a></p></article>
+	<aside>
+		<p>2016-05-23</p>
+		<p><a href="../tag/clojure.html">clojure</a> <a href="../tag/blog.html">blog</a> <a href="../tag/lisp.html">lisp</a> <a href="../tag/%E9%A1%B9%E7%9B%AE.html">项目</a> <a href="../tag/kiln.html">kiln</a>  </p>
+	</aside>
+	<footer>
+	<p><a href="https://github.com/huzhengquan/kiln">kiln</a>驱动</p>
+	</footer>
+</body>
+</html>
