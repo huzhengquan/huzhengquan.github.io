@@ -3,7 +3,7 @@
 <channel>
 <atom:link href='http://hzq.num.run' rel='self' type='application/rss+xml'/>
 <title>
-浆糊糊
+孩子气
 </title>
 <link>
 http://hzq.num.run
@@ -15,7 +15,7 @@ http://hzq.num.run
 zh-CN
 </language>
 <lastBuildDate>
-Sun, 29 May 2016 17:35:46 +0800
+Mon, 05 Sep 2016 11:10:14 +0800
 </lastBuildDate>
 <generator>
 clj-rss
