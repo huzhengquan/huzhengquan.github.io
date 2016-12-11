@@ -1,6 +1,6 @@
 title: 黄山 & 南京
 date: 2016-02-20
-tags: 黄山,游记
+tags: 黄山,游记,南京
 
 ![黄山](http://ww3.sinaimg.cn/large/006y8lVajw1fan4bji1jtj30m80et75n.jpg)
 
