@@ -15,11 +15,28 @@ http://hzq.num.run
 zh-CN
 </language>
 <lastBuildDate>
-Mon, 12 Dec 2016 07:24:46 +0800
+Tue, 13 Dec 2016 19:25:35 +0800
 </lastBuildDate>
 <generator>
 clj-rss
 </generator>
+<item>
+<description>
+<![CDATA[ <p>传说在很久以前的一个图书馆中有一个老头，这个老头在晚年乘青牛向西而去，路过函谷关时写下了五千字的《道德经》，而这五千字估计是中国有史以来印刷最多的五千字吧，这真神奇，这老头就是被道教奉为最高尊神的太上老君。</p><p>老子的年代中，信息真的是穷得不行不行，连纸都没有，想象一下要写几个字都要写到竹子上，这是多么困难的事。要买一本《道德经》估计也是贵到不行不行的。所以古文才『节衣缩食』，所以《道德经》才五千字。那个时期的书必然全是经典，那个时期的人们难在『传播信息』的昂贵，而现在的人们难在『选择信息』的彷徨。</p><p>人和人的智商可能真的差不了太多，我们常识中的智商高低可能只是体现在世界观的不同而已。哲学是研究世界本质的学问，如果要在中国历史上找几个哲学家，估计只有老子能当之无愧。而老子应该就是影响中国人最深刻的人吧。</p><p>《道德经》不是研究『道德』的，这很有趣，难道是把世界看作人，研究的是世界的道德吗？</p><p>读经典如《道德经》这样的书必然是值得的，因为这是传诵几千年的经典，只这一条原因就足矣。所以，我要沉下心，进入老子的思想世界，这世界一定有宝藏。</p> ]]>
+</description>
+<pubDate>
+Tue, 13 Dec 2016 00:00:00 +0800
+</pubDate>
+<title>
+<![CDATA[ 我心目中的老子 ]]>
+</title>
+<link>
+http://hzq.num.run/article/2016-12-13_laozi.html
+</link>
+<guid>
+http://hzq.num.run/article/2016-12-13_laozi.html
+</guid>
+</item>
 <item>
 <description>
 <![CDATA[ <p>世界变化快，快起来就要命。</p><p>多年前接触WEB开发，当时是HTML，使用TABLE设计页面结构，弄出来和网页和报纸杂志一般的，还挺有趣；后来倡导使用CSS设计样式，把样式和内容分离；javascript的参与也越来越多，gmail使用javascript弄出来一个不同的网站；而如今，爆炸了，技术实现的方案数快无法统计全了。</p><p>在<a href='http://jquery.com/'>jquery</a>之后，我没有主动学习什么技术，比如<a href='https://angularjs.org/'>angularjs</a>。当时anaularjs如日中天时，我主要做的是后端的开发，那时已经很厌倦前端的变化，就没去看anaularjs，这不？还没两年，就出来<a href='https://facebook.github.io/react/'>reactjs</a>了。</p><p>reactjs取代anaularjs的焦点位置，而且速度极快，真不明白，是reactjs太容易学习了，还是前端工程师太爱学或太闲了，一夜间就有很多reactjs的实现跳了出来。reactjs我也就只是看了一本关于它的薄薄的书，也没明白它的原理，然后没有两年的时间，在知乎上出来很多讨论<a href='http://vuejs.org/'>vuejs</a>的内容，这下我又懵圈了，学习速度明显跟不上时代步伐啊！</p><p>如果只是angularjs、reactjs和vuejs也就算了，前端开发还有一大堆编译到javascript的语言，不完全统计的有： <a href='http://coffeescript.org/'>CoffeeScript</a>、 <a href='https://www.dartlang.org/'>Dart</a>、 <a href='http://www.typescriptlang.org/'>TypeScript</a>、 <a href='https://github.com/clojure/clojurescript'>ClojureScript</a>、 <a href='http://livescript.net/'>LiveScript</a>、 <a href='http://www.purescript.org/'>PureScript</a>、 <a href='http://elm-lang.org/'>elm</a>，还有很多很多，基本上每一个编程语言都会有对应编译到javascript的语言。</p><p>年龄越来越大，精力越来越少，这样的情况下怎么选择呢？是选择javascript环境呢，还是选择toJavascript环境呢？下定决心选择一个吧，接下来又会有一堆的选择。难道非要逼着我把所有的都尝试一下才行吗！</p><p>其实我的心里偏向于ClojureScript和vuejs，要不就先学一学这两个，再决定后面的事情。</p> ]]>
@@ -171,23 +188,6 @@ http://hzq.num.run/article/2016-05-28_price_and_love.html
 </link>
 <guid>
 http://hzq.num.run/article/2016-05-28_price_and_love.html
-</guid>
-</item>
-<item>
-<description>
-<![CDATA[ <p>春节的时候，用了好几天帮一个老朋友做了一个<em>微信公众号文章+悬浮广告</em>的文章生成器，在本地写文章并配置广告物料后，这个工具会把内容格式化HTML页面，这个工具就是kiln。</p><p>那个朋友不太靠谱，这个工具对他而言似乎没什么用。而我就把这个工具扔在github上了。</p><p>我的blog不太简洁，依赖多，一直想换上静态博客。就用kiln进一步精减并加入rss生成功能，就是现在的kiln。</p><ul><li>支持markdown内容;</li><li>支持自定义HTML模板;</li><li>用tag分类;</li><li>简洁的文章样式;</li><li>可通过rss订阅;</li><li>生成的是纯<em>浏览器内容</em>(html)</li></ul><p>用clojure写的，感觉越来越好了，clojure很好用，唯一遗憾的是如果不用纯java包的话，clojure包比较少，比如rss模块，找了半天就找到一个能用的:clj-rss。我还是不太喜欢用java，毕竟风格差别挺大，而且自己也不太熟悉。</p><p>lisp对我是有很大吸引力的，而且越来越亲切；函数式编程也很舒服，终于可以不去搞对象了。</p><p><a href='https://github.com/huzhengquan/kiln'>kiln</a></p> ]]>
-</description>
-<pubDate>
-Mon, 23 May 2016 00:00:00 +0800
-</pubDate>
-<title>
-<![CDATA[ 静态blog生成器:kiln ]]>
-</title>
-<link>
-http://hzq.num.run/article/2016-05-23_new_kiln.html
-</link>
-<guid>
-http://hzq.num.run/article/2016-05-23_new_kiln.html
 </guid>
 </item>
 </channel>
